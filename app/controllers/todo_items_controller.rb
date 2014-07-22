@@ -1,5 +1,7 @@
 class TodoItemsController < ApplicationController
 
+  respond_to :json
+
   def index
     @todo_items = TodoItem.all
     respond_with(@todo_items)
