@@ -1,10 +1,8 @@
 class TodoItemsController < ApplicationController
 
   def index
-
     @todo_items = TodoItem.all
-    # somehow show them
-
+    respond_with(@todo_items)
   end
 
   def create
@@ -12,9 +10,9 @@ class TodoItemsController < ApplicationController
     @todo_item = TodoItem.new(todo_item_params)
 
     if @todo_item.save
-      # update the thing
+      respond_with(@todo_item)
     else
-      # show errors
+      respond_with(@todo_item.errors)
     end
 
   end
