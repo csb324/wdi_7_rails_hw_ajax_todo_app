@@ -42,6 +42,7 @@ GEM
     coffee-script-source (1.7.1)
     erubis (2.7.0)
     execjs (2.2.1)
+    ffaker (1.24.0)
     handlebars_assets (0.17.1)
       execjs (>= 1.2.9)
       multi_json
@@ -128,6 +129,7 @@ DEPENDENCIES
   active_model_serializers
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  ffaker
   handlebars_assets
   jbuilder (~> 2.0)
   jquery-rails

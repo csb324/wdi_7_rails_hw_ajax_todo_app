@@ -23,3 +23,4 @@ gem 'active_model_serializers'
 gem 'handlebars_assets'
 
 gem 'bootstrap-sass'
+gem 'ffaker'

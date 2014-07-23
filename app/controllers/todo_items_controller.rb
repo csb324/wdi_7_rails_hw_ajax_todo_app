@@ -2,6 +2,10 @@ class TodoItemsController < ApplicationController
 
   respond_to :json
 
+  def default_serializer_options
+    {root: false}
+  end
+
   def index
     @todo_items = TodoItem.all
     respond_with(@todo_items)

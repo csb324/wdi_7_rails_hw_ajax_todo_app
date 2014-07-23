@@ -5,10 +5,10 @@ TodoApp.TodoList = {
   buildListCallback: function(todos) {
     var $todolist;
     todos.forEach(function(todoItem) {
-      var singleTodo = new TodoItem(todoItem);
+      var singleTodo = new TodoApp.TodoItem(todoItem);
       var $singleTodoShow = singleTodo.showView();
 
-      if (sindleTodo.finished === true){
+      if (singleTodo.finished === true){
         $todolist = $('.finished-things-list');
       } else if (singleTodo.finished === false){
         $todolist = $('.to-do-list');
@@ -23,6 +23,6 @@ TodoApp.TodoList = {
       type: 'GET',
     })
     .done(this.buildListCallback);
-  }
+  },
 
 };

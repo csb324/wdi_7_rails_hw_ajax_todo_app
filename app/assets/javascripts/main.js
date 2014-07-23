@@ -1,3 +1,3 @@
 $(document).ready(function() {
-  TodoApp.TodoList.getTodos();
+  TodoApp.TodoList.getLists();
 });

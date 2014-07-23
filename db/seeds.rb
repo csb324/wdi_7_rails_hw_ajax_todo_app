@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do
+  TodoItem.create!(description: Faker::BaconIpsum.sentence, created_at: Time.now)
+end
