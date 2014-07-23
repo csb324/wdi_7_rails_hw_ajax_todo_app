@@ -45,18 +45,32 @@ TodoApp.TodoList = {
 
   changeTodoItem: function(event) {
     event.preventDefault();
-    var $todoElement = $(event.target).parents('li');
-    var todoIdentifier = $todoElement.data('id');
+    var $buttonClicked = $(event.target);
+    var todoIdentifier = $buttonClicked.parents('li').data('id');
 
-    $.ajax({
-      url: 'http://localhost:3000/todo_items/' + todoIdentifier,
-      type: 'PUT',
-      dataType: 'json',
-    })
-    .done(this.getLists())
-    .fail(function(data) {
-      console.log(data);
-    });
+    if( $buttonClicked.hasClass("finish-button") ){
+      $.ajax({
+        url: 'http://localhost:3000/todo_items/' + todoIdentifier,
+        type: 'PUT',
+        dataType: 'json',
+      })
+      .done(this.getLists())
+      .fail(function(data) {
+        console.log(data);
+      });
+    } else if ( $buttonClicked.hasClass("delete-button") ) {
+      $.ajax({
+        url:'http://localhost:3000/todo_items/' + todoIdentifier,
+        type: 'DELETE',
+        dataType: 'json'
+      })
+      .done(this.getLists())
+      .fail(function(data) {
+        console.log(data);
+      });
+    }
+
+
   },
 
   init: function() {

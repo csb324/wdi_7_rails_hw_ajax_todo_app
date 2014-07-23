@@ -32,9 +32,13 @@ class TodoItemsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @todo_item = TodoItem.find(params[:id])
     @todo_item.destroy
+
+    @todo_items = TodoItem.all
+
+    respond_with(@todo_items)
   end
 
   private
