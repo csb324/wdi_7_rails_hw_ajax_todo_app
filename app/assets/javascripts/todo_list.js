@@ -25,4 +25,32 @@ TodoApp.TodoList = {
     .done(this.buildListCallback);
   },
 
+  addTodoItem: function(event) {
+    event.preventDefault();
+
+    var $form = $(event.target);
+    var $description = $form.find("#to-do-field").val();
+    var $now = new Date();
+    var request = {description: $description, created_at: $now};
+
+
+    $.ajax({
+      url: 'http://localhost:3000/todo_items.json',
+      type: 'POST',
+      data: request,
+      dataType: 'json'
+    })
+    .done(function(data) {
+      console.log(data);
+    });
+  }
+
+};
+
+TodoApp.init = function() {
+
+  this.TodoList.getLists();
+
+  $('#to-do-form').submit(this.TodoList.addTodoItem);
+
 };
