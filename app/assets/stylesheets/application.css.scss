@@ -16,3 +16,78 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(http://fonts.googleapis.com/css?family=Muli:300,400|Cedarville+Cursive);
+
+$dark-purple: #512F3F;
+$reddish: #814551;
+$taupe: #A07E72;
+$seagreen: #7DA088;
+$peach: #F8CBA4;
+
+body {
+  font-family: 'Muli', sans-serif;
+  //background: image-url("ricepaper2.png");
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 16px;
+}
+
+.date {
+  font-size: 13px;
+  color: $seagreen;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 400%;
+  padding-bottom: 50px;
+}
+
+.buttons {
+  float: right;
+  color: $taupe;
+  .glyphicon {
+    margin-left: 5px;
+  }
+}
+
+li {
+  padding-bottom: 5px;
+}
+
+#to-do-form {
+  #to-do-field {
+    width: 85%;
+  }
+  input[type="submit"] {
+    width: 10%;
+    background: $seagreen;
+    color: white;
+    float: right;
+  }
+  input[type="submit"], #to-do-field {
+    display: inline-block;
+    border-radius: 10px;
+    border: none;
+  }
+}
+
+.sort-buttons {
+  p {
+    display: inline-block;
+  }
+  .btn-link {
+    color: white;
+  }
+  color: white;
+  background: $reddish;
+  border-radius: 10px;
+  padding-left: 15px;
+  padding-top: 4px;
+}
+

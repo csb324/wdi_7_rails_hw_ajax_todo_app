@@ -57,7 +57,6 @@ TodoApp.TodoList = {
     .fail(function(data) {
       console.log(data);
     });
-
   },
 
   init: function() {
