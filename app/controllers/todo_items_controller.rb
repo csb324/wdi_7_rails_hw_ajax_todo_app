@@ -19,7 +19,17 @@ class TodoItemsController < ApplicationController
     else
       respond_with(@todo_item.errors)
     end
+  end
 
+  def update
+    @todo_item = TodoItem.find(params[:id])
+    @todo_item.finished = true
+
+    if @todo_item.save
+      respond_with(@todo_item)
+    else
+      respond_with(@todo_item.errors)
+    end
   end
 
   def delete

@@ -9,3 +9,7 @@
 10.times do
   TodoItem.create!(description: Faker::BaconIpsum.sentence, created_at: Time.now)
 end
+
+4.times do
+  TodoItem.create!(description: Faker::HipsterIpsum.sentence, created_at: Time.now, finished: true)
+end

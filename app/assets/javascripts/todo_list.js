@@ -46,9 +46,17 @@ TodoApp.TodoList = {
   changeTodoItem: function(event) {
     event.preventDefault();
     var $todoElement = $(event.target).parents('li');
-    var $todoIdentifier = $todoElement.data('id');
+    var todoIdentifier = $todoElement.data('id');
 
-
+    $.ajax({
+      url: 'http://localhost:3000/todo_items/' + todoIdentifier,
+      type: 'PUT',
+      dataType: 'json',
+    })
+    .done(this.getLists())
+    .fail(function(data) {
+      console.log(data);
+    });
 
   },
 
