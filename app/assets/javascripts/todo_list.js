@@ -2,7 +2,8 @@ var TodoApp = TodoApp || {};
 
 TodoApp.TodoList = {
 
-  buildListCallback: function(todos) {
+  buildLists: function(todos) {
+    $('ul').empty();
     var $todolist;
     todos.forEach(function(todoItem) {
       var singleTodo = new TodoApp.TodoItem(todoItem);
@@ -22,7 +23,7 @@ TodoApp.TodoList = {
       url: 'http://localhost:3000/todo_items.json',
       type: 'GET',
     })
-    .done(this.buildListCallback);
+    .done(this.buildLists);
   },
 
   addTodoItem: function(event) {
@@ -30,27 +31,35 @@ TodoApp.TodoList = {
 
     var $form = $(event.target);
     var $description = $form.find("#to-do-field").val();
-    var $now = new Date();
-    var request = {description: $description, created_at: $now};
-
+    $form.find("#to-do-field").val("");
+    var request = {description: $description};
 
     $.ajax({
       url: 'http://localhost:3000/todo_items.json',
       type: 'POST',
-      data: request,
+      data: { todo_item: request },
       dataType: 'json'
     })
-    .done(function(data) {
-      console.log(data);
-    });
+    .done(this.getLists());
+  },
+
+  changeTodoItem: function(event) {
+    event.preventDefault();
+    var $todoElement = $(event.target).parents('li');
+    var $todoIdentifier = $todoElement.data('id');
+
+
+
+  },
+
+  init: function() {
+
+    this.getLists();
+    $('#to-do-form').submit(this.addTodoItem.bind(this));
+
+    $('.to-do-list').on('click', '.buttons .glyphicon', this.changeTodoItem.bind(this));
+
   }
 
 };
 
-TodoApp.init = function() {
-
-  this.TodoList.getLists();
-
-  $('#to-do-form').submit(this.TodoList.addTodoItem);
-
-};

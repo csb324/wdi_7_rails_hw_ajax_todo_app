@@ -1,4 +1,4 @@
 $(document).ready(function() {
-  TodoApp.init();
+  TodoApp.TodoList.init();
 
 });
